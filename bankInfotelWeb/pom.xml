@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>com.infotel.bank</groupId>
-    <artifactId>bankInfotelWeb</artifactId>
+    <artifactId>bankInfotel</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     
-    <name>bankInfotelWeb</name>
+    <name>bankInfotel</name>
     <description>Backend server for bankInfotelWeb application</description>
 
     <parent>

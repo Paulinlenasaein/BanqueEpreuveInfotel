@@ -1,12 +1,12 @@
-package com.infotel.bank.bankInfotelweb;
+package com.infotel.bank.bankInfotel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BankInfotelWebApplication {
+public class BankInfotelApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BankInfotelWebApplication.class, args);
+        SpringApplication.run(BankInfotelApplication.class, args);
     }
 }
