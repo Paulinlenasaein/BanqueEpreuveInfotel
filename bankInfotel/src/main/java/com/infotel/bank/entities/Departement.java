@@ -16,14 +16,14 @@ import org.hibernate.validator.constraints.Length;
 @Entity
 @Data
 public class Departement implements Serializable {
-    
+
     @Id
     @Length(min = 2, max = 15)
     private String code;
-    
+
     @Column(nullable = false)
     private String name;
-    
+
     @OneToMany(mappedBy = "departement")
     private List<DepOption> options;
 }

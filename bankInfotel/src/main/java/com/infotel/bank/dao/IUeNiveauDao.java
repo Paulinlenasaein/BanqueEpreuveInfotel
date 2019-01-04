@@ -1,6 +1,6 @@
 package com.infotel.bank.dao;
 
-import com.infotel.bank.entities.Departement;
+import com.infotel.bank.entities.UeNiveau;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  * @author paulinlenasaein
  */
 @Repository
-public interface IDepartementDao extends JpaRepository<Departement, String>{
+public interface IUeNiveauDao extends JpaRepository<UeNiveau, Long>{
     
 }

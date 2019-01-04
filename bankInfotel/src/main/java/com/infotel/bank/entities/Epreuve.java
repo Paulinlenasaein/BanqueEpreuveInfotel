@@ -19,32 +19,32 @@ import lombok.Data;
 @Entity
 @Data
 public class Epreuve implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @Column(nullable = false, unique = true)
     private String file_name;
-    
+
     @Column(columnDefinition = "DOUBLE NOT NULL")
     private Double file_size;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date file_date;
-    
-    @Column(nullable = false)
-    private String type;
-    
+
+    @Column(columnDefinition = "VARCHAR(5) NOT NULL")
+    private TypeEpreuve type;
+
     @Temporal(TemporalType.DATE)
     private Date session;
-    
+
     @Column(columnDefinition = "INT(11) NOT NULL DEFAULT 0")
     private Long up_dow;
-    
+
     @ManyToOne(optional = false)
     private UE ue;
-    
+
     @ManyToOne(optional = false)
     private Compte compte;
 }

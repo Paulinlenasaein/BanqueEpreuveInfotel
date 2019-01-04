@@ -19,31 +19,34 @@ import org.hibernate.validator.constraints.Length;
 @Entity
 @Data
 public class Compte implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idUser;
-    
+
     @Column(unique = true, nullable = false)
     @Length(min = 8, max = 8)
     private String matricule;
-    
+
     @Column(unique = true, nullable = false)
     private String email;
-    
+
     @Column(unique = true, nullable = false)
     @Length(min = 8)
     private String password;
-    
+
     @Column(unique = true, nullable = false)
     private String firstName;
-    
+
     @Column(nullable = true)
     private String lastName;
     
+    @Column(columnDefinition = "INT(1) UNSIGNED NOT NULL DEFAULT 2")
+    private RoleName role;
+
     @ManyToOne(optional = false)
     private Niveau niveau;
-    
+
     @OneToMany(mappedBy = "compte")
     private List<Epreuve> epreuves;
 }
