@@ -41,7 +41,7 @@ public class Compte implements Serializable {
     @Column(nullable = true)
     private String lastName;
     
-    @Column(columnDefinition = "INT(1) UNSIGNED NOT NULL DEFAULT 2")
+    @Column(columnDefinition = "VARCHAR(7) NOT NULL DEFAULT 'STUDENT'")
     private RoleName role;
 
     @ManyToOne(optional = false)

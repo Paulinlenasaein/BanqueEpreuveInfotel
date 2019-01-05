@@ -8,9 +8,10 @@ import org.springframework.data.domain.Page;
  * @author paulinlenasaein
  */
 public interface ICompteService {
-    
+
     /**
-     * stocke le compte d'un utilisateur passé en paramètre dans la base de données
+     * stocke le compte d'un utilisateur passé en paramètre dans la base de
+     * données
      *
      * @param compte compte de l'utilisateur
      * @return le compte enregistré dans l'entrepot
@@ -35,26 +36,30 @@ public interface ICompteService {
      * @throws DataAccessException si un événement non prévu survient
      */
     public Compte findOneByEmail(String email) throws DataAccessException;
-    
+
     /**
-     * recherche un compte suivant la valeur de son adresse mail et de son mot de passe
+     * recherche un compte suivant la valeur de son adresse mail et de son mot
+     * de passe
      *
      * @param email email du compte à rechercher
      * @param password mot de passe du compte de l'utilisateur
-     * @return l'utilisateur dont l'email et le mot de passeest passés en paramètre
+     * @return l'utilisateur dont l'email et le mot de passeest passés en
+     * paramètre
      * @throws DataAccessException si un événement non prévu survient
      */
     public Compte findOneByEmailAndPassword(String email, String password) throws DataAccessException;
-    
+
     /**
      * recherche un compte ayant un privilège donné
      *
      * @param role privilège ou rôle du compte de l'étudiant
+     * @param from numéro de la page initiale
+     * @param to taille de la page
      * @return l'utilisateur dont le rôle est passé en paramètre
      * @throws DataAccessException si un événement non prévu survient
      */
-    public Page<Compte> findOneByRole(int role) throws DataAccessException;
-    
+    public Page<Compte> findAllByRole(String role, int from, int to) throws DataAccessException;
+
     /**
      * renvoie tous les comptes utilisateurs
      *
@@ -74,13 +79,13 @@ public interface ICompteService {
     public void deleteOne(String matricule) throws DataAccessException;
 
     /**
-     * met à jour le compte passé en paramètre. Le compte doit être déjà
-     * présent dans la BDD
+     * met à jour le compte passé en paramètre. Le compte doit être déjà présent
+     * dans la BDD
      *
      * @param compte compte de l'utilisateur à mettre à jour
      * @return compte mis à jour
      * @throws DataAccessException si un événement non prévu survient
      */
     public Compte updateOne(Compte compte) throws DataAccessException;
-    
+
 }

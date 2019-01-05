@@ -6,5 +6,5 @@ package com.infotel.bank.entities;
  */
 public enum RoleName {
     
-    ADMIN, TEACHER, SIMPLE;
+    ADMIN, TEACHER, STUDENT;
 }

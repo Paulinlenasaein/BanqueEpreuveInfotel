@@ -25,13 +25,13 @@ public class Epreuve implements Serializable {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String file_name;
+    private String fileName;
 
     @Column(columnDefinition = "DOUBLE NOT NULL")
-    private Double file_size;
+    private Double fileSize;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date file_date;
+    private Date fileDate;
 
     @Column(columnDefinition = "VARCHAR(5) NOT NULL")
     private TypeEpreuve type;
@@ -40,7 +40,7 @@ public class Epreuve implements Serializable {
     private Date session;
 
     @Column(columnDefinition = "INT(11) NOT NULL DEFAULT 0")
-    private Long up_dow;
+    private Long upDow;
 
     @ManyToOne(optional = false)
     private UE ue;

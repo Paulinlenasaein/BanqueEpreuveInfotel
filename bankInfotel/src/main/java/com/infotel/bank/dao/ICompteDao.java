@@ -55,5 +55,5 @@ public interface ICompteDao extends JpaRepository<Compte, Long>{
      * @param page pagination du résultat
      * @return une page d'objets Compte
      */
-    public Page<Compte> findByRole(int role, Pageable page);
+    public Page<Compte> findByRole(String role, Pageable page);
 }

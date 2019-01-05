@@ -64,13 +64,13 @@ public interface IEpreuveService {
     /**
      * recherche les epreuves posté par un utilisateur
      *
-     * @param id identifiant de l'utilisateur
+     * @param matricule matricule de l'utilisateur
      * @param from numéro de la page initiale
      * @param to taille de la page
      * @return les epreuves postés par l'utilisateur fourni
      * @throws DataAccessException si un événement non prévu survient
      */
-    public Page<Epreuve> findAllByCompte(Long id, int from, int to) throws DataAccessException;
+    public Page<Epreuve> findAllByCompte(String matricule, int from, int to) throws DataAccessException;
 
     /**
      * renvoie tous les epreuves d'une UE
@@ -85,10 +85,10 @@ public interface IEpreuveService {
     /**
      * supprime l'épreuve passé en paramètre dans la base de données
      *
-     * @param code code de l'épreuve dans la BDD
+     * @param id identifiant de l'épreuve dans la BDD
      * @throws DataAccessException si un événement non prévu survient
      */
-    public void deleteOne(String code) throws DataAccessException;
+    public void deleteOne(Long id) throws DataAccessException;
 
     /**
      * met à jour de l'épreuve passé en paramètre. L'epreuve doit être déjà
