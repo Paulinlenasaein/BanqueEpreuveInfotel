@@ -44,7 +44,7 @@ public class CompteResource {
     }
     
     @GET
-    @Path("/Auth/{email}/{password}")
+    @Path("/auth/{email}/{password}")
     @Produces(value = MediaType.APPLICATION_JSON)
     public Compte returnOneByEmailAndPassword(@PathParam("email") String email, @PathParam("password") String password) throws DataAccessException {
         return compteService.findOneByEmailAndPassword(email, password);
@@ -53,8 +53,15 @@ public class CompteResource {
     @GET
     @Path("/role/{role}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Page<Compte> returnAllByRole(String role, @DefaultValue("0") @QueryParam("from") int from, @DefaultValue("50") @QueryParam("to") int to) throws DataAccessException {
-        return compteService.findAllByRole(role, from, to);
+    public Page<Compte> returnAllByRole(@PathParam("role") String role, @DefaultValue("0") @QueryParam("from") int from, @DefaultValue("50") @QueryParam("to") int to) throws DataAccessException {
+        return compteService.findAllByRole(role.toUpperCase().trim(), from, to);
+    }
+    
+    @GET
+    @Path("/sendmail/{email}/{lastname}")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public String sendAuthMailToUser(@PathParam("email") String email, @PathParam("lastname") String lastname) throws DataAccessException {
+        return compteService.sendEmail(email, lastname);
     }
 
     @GET

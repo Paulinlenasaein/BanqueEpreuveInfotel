@@ -36,7 +36,7 @@ public interface IDepOptionService {
      * @return les options dont le département est passé en paramètre
      * @throws DataAccessException si un événement non prévu survient
      */
-    public Page<DepOption> findOneByDepartement(String departement, int from, int to) throws DataAccessException;
+    public Page<DepOption> findAllByDepartement(String departement, int from, int to) throws DataAccessException;
 
     /**
      * renvoie tous les options d'un département

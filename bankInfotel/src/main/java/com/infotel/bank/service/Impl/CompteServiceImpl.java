@@ -5,6 +5,10 @@ import com.infotel.bank.entities.Compte;
 import com.infotel.bank.entities.RoleName;
 import com.infotel.bank.service.DataAccessException;
 import com.infotel.bank.service.ICompteService;
+import com.infotel.bank.service.SendEmailService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +49,19 @@ public class CompteServiceImpl implements ICompteService {
         return compteDao.findByEmailAndPassword(email, password);
     }
 
-    @Override
+    @Override 
     public Page<Compte> findAllByRole(String role, int from, int to) throws DataAccessException {
-        return compteDao.findByRole(RoleName.valueOf(role).name(), PageRequest.of(from, to, Sort.by(Sort.Direction.ASC, "matricule")));
+        return compteDao.findByRole(RoleName.valueOf(role), PageRequest.of(from, to, Sort.by(Sort.Direction.ASC, "matricule")));
+    }
+    
+     @Override
+    public String sendEmail(String toEmail, String lastname) throws DataAccessException {
+        try {
+            return SendEmailService.generateAndSendEmail(toEmail, lastname);
+        } catch (MessagingException ex) {
+            Logger.getLogger(CompteServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "Echec de l'énvoi de l'email, veuillez vérifier que votre adresse email est correcte ou que vous êtes bien connecté...";
     }
 
     @Override

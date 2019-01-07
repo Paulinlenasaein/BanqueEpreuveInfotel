@@ -6,5 +6,5 @@ package com.infotel.bank.entities;
  */
 public enum TypeEpreuve {
     
-    CC, TP, TPE, EE, RTPGE;
+    CC, TP, TPE, EE, RTPGE
 }

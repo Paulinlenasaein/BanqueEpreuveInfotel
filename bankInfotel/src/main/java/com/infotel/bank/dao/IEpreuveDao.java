@@ -2,6 +2,7 @@ package com.infotel.bank.dao;
 
 import com.infotel.bank.entities.Compte;
 import com.infotel.bank.entities.Epreuve;
+import com.infotel.bank.entities.TypeEpreuve;
 import com.infotel.bank.entities.UE;
 import java.util.Date;
 import org.springframework.data.domain.Page;
@@ -43,7 +44,7 @@ public interface IEpreuveDao extends JpaRepository<Epreuve, Long>{
      * @param type CC, TP, TPE, EE ou RTPGE
      * @return une page d'objets Epreuve
      */
-    public Epreuve findByUeAndSessionAndType(UE ue, Date session, String type);
+    public Epreuve findByUeAndSessionAndType(UE ue, Date session, TypeEpreuve type);
     
     /**
      * retourne les épreuves postées par un utilisateur donné

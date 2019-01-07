@@ -59,6 +59,16 @@ public interface ICompteService {
      * @throws DataAccessException si un événement non prévu survient
      */
     public Page<Compte> findAllByRole(String role, int from, int to) throws DataAccessException;
+    
+     /**
+     * Envoi un mail d'authentification à un utilisateur
+     *
+     * @param toEmail adresse mail du client
+     * @param lastname lastname du futur utilisateur
+     * @return le code d'authentification généré
+     * @throws DataAccessException si un événement non prévu survient
+     */
+    public String sendEmail(String toEmail, String lastname) throws DataAccessException;
 
     /**
      * renvoie tous les comptes utilisateurs

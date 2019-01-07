@@ -4,6 +4,7 @@ import com.infotel.bank.dao.ICompteDao;
 import com.infotel.bank.dao.IEpreuveDao;
 import com.infotel.bank.dao.IUEDao;
 import com.infotel.bank.entities.Epreuve;
+import com.infotel.bank.entities.TypeEpreuve;
 import com.infotel.bank.service.DataAccessException;
 import com.infotel.bank.service.IEpreuveService;
 import java.text.ParseException;
@@ -74,7 +75,7 @@ public class EpreuveServiceImpl implements IEpreuveService {
         } catch (ParseException ex) {
             Logger.getLogger(EpreuveServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return epreuveDao.findByUeAndSessionAndType(ueDao.getOne(codeUE), date, type);
+        return epreuveDao.findByUeAndSessionAndType(ueDao.getOne(codeUE), date, TypeEpreuve.valueOf(type));
     }
 
     @Override

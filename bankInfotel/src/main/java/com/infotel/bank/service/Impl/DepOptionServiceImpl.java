@@ -38,7 +38,7 @@ public class DepOptionServiceImpl implements IDepOptionService {
     }
     
      @Override
-    public Page<DepOption> findOneByDepartement(String departement, int from, int to) throws DataAccessException {
+    public Page<DepOption> findAllByDepartement(String departement, int from, int to) throws DataAccessException {
         return optionDao.findByDepartement(departementDao.getOne(departement), PageRequest.of(from, to, Sort.by(Sort.Direction.ASC, "codeOption")));
     }
 
