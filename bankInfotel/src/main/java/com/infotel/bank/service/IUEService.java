@@ -35,6 +35,17 @@ public interface IUEService {
      * @throws DataAccessException si un événement non prévu survient
      */
     public UE findOneByIntitule(String intitule) throws DataAccessException;
+    
+    /**
+     * recherche l'UE donné
+     *
+     * @param semestre semestre auquel appartient l'unité d'enseignement
+     * @param from numéro de la page initiale
+     * @param to page finale
+     * @return les UEs d'un semestre donné
+     * @throws DataAccessException si un événement non prévu survient
+     */
+    public Page<UE> findAllBySemestre(int semestre, int from, int to) throws DataAccessException;
 
     /**
      * renvoie tous les UEs

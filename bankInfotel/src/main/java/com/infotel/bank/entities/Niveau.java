@@ -32,7 +32,7 @@ public class Niveau implements Serializable {
     private DepOption option;
 
     @OneToMany(mappedBy = "niveau")
-    private List<Compte> comptes;
+    private List<Etudiant> etudiant;
 
     @OneToMany(mappedBy = "niveau")
     private List<UeNiveau> ueNiveau;

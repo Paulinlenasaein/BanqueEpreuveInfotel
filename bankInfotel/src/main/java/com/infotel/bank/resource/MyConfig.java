@@ -16,7 +16,7 @@ public class MyConfig extends ResourceConfig {
         register(CompteResource.class);
         register(DepOptionResource.class);
         register(DepartementResource.class);
-        register(EpreuveResource.class);
+        register(FichierResource.class);
         register(NiveauResource.class);
         register(UEResource.class);
         register(UeNiveauResource.class);

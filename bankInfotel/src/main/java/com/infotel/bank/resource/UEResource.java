@@ -42,6 +42,13 @@ public class UEResource {
     public UE returnOneByIntitul(@PathParam("intitule") String intitule) throws DataAccessException {
         return ueService.findOneByIntitule(intitule);
     }
+    
+    @GET
+    @Path("/semestre/{semestre}")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Page<UE> returnAllBySemestre(@PathParam("semestre") int semestre, @DefaultValue("0") @QueryParam("from") int from, @DefaultValue("50") @QueryParam("to") int to) throws DataAccessException {
+        return ueService.findAllBySemestre(semestre, from, to);
+    }
 
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)

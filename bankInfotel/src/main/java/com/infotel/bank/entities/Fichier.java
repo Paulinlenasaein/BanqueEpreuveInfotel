@@ -2,6 +2,7 @@ package com.infotel.bank.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import lombok.Data;
@@ -20,7 +22,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class Epreuve implements Serializable {
+public class Fichier implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,7 +48,7 @@ public class Epreuve implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(5) NOT NULL")
-    private TypeEpreuve type;
+    private TypeFichier type;
 
     @Temporal(TemporalType.DATE)
     private Date session;
@@ -58,5 +60,8 @@ public class Epreuve implements Serializable {
     private UE ue;
 
     @ManyToOne(optional = false)
-    private Compte compte;
+    private Enseignant enseignant;
+    
+    @OneToMany(mappedBy = "fichier")
+    private List<Recevoir> receive;
 }

@@ -44,10 +44,24 @@ public class CompteResource {
     }
     
     @GET
+    @Path("/cni/{cni}")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Compte returnOneByCni(@PathParam("cni") String cni) throws DataAccessException {
+        return compteService.findOneByCni(cni);
+    }
+    
+    @GET
     @Path("/auth/{email}/{password}")
     @Produces(value = MediaType.APPLICATION_JSON)
     public Compte returnOneByEmailAndPassword(@PathParam("email") String email, @PathParam("password") String password) throws DataAccessException {
         return compteService.findOneByEmailAndPassword(email, password);
+    }
+    
+    @GET
+    @Path("/auth1/{cni}/{matricule}")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Compte returnOneByCniAndMatricule(@PathParam("cni") String cni, @PathParam("matricule") String matricule) throws DataAccessException {
+        return compteService.findOneByCniAndMatricule(cni, matricule);
     }
     
     @GET

@@ -58,6 +58,11 @@ public class UEServiceImpl implements IUEService {
     public UE updateOne(UE ue) throws DataAccessException {
         return ueDao.save(ue);
     }
+
+    @Override
+    public Page<UE> findAllBySemestre(int semestre, int from, int to) throws DataAccessException {
+        return ueDao.findBySemestre(semestre, PageRequest.of(from, to, Sort.by(Sort.Direction.ASC, "codeUE")));
+    }
     
     
 }

@@ -4,7 +4,7 @@ package com.infotel.bank.entities;
  *
  * @author paulinlenasaein
  */
-public enum TypeEpreuve {
+public enum TypeFichier {
     
-    CC, TP, TPE, EE, RTPGE
+    COURS, TD, CC, TP, TPE, EE, RTPGE
 }

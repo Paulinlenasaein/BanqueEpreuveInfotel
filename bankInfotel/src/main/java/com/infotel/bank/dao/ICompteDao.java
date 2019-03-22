@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
  * @author paulinlenasaein
  */
 @Repository
-public interface ICompteDao extends JpaRepository<Compte, Long>{
-    
+public interface ICompteDao extends JpaRepository<Compte, Long> {
+
     /**
      * retourne le compte d'un étudiant ayant un matricule donné
      *
@@ -30,7 +30,25 @@ public interface ICompteDao extends JpaRepository<Compte, Long>{
      * @return un objet Compte
      */
     public Compte findByEmail(String email);
-    
+
+    /**
+     * retourne le compte d'un étudiant ayant un numéro de CNI donné
+     *
+     * @param cni numéro de CNI de l'étudiant recherché
+     * @return un objet Compte
+     */
+    public Compte findByCni(String cni);
+
+    /**
+     * retourne le compte d'un étudiant ayant un numéro de CNI et matricule
+     * donnés
+     *
+     * @param cni numéro de CNI de l'étudiant recherché
+     * @param matricule matricule de l'étudiant recherché
+     * @return un objet Compte
+     */
+    public Compte findByCniAndMatricule(String cni, String matricule);
+
     /**
      * retourne le compte d'un étudiant ayant un email donné
      *
@@ -39,16 +57,7 @@ public interface ICompteDao extends JpaRepository<Compte, Long>{
      * @return un objet Compte
      */
     public Compte findByEmailAndPassword(String email, String password);
-    
-    /**
-     * retourne le compte des étudiants étant à un niveau donné
-     *
-     * @param niveau niveau des des étudiants recherchés
-     * @param page pagination du résultat
-     * @return une page d'objets Compte
-     */
-    public Page<Compte> findByNiveau(Niveau niveau, Pageable page);
-    
+
     /**
      * retourne les compte des étudiants ayant un role donné
      *

@@ -23,6 +23,9 @@ public class UE implements Serializable {
 
     @Column(nullable = false)
     private String intitule;
+    
+    @Column(nullable = false, columnDefinition = "int(2) not null")
+    private int semestre;
 
     @Column(nullable = false)
     private String shared;
@@ -31,5 +34,5 @@ public class UE implements Serializable {
     private List<UeNiveau> ueNiveau;
 
     @OneToMany(mappedBy = "ue")
-    private List<Epreuve> epreuve;
+    private List<Fichier> Fichier;
 }

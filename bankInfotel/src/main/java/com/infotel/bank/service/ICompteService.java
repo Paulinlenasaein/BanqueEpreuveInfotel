@@ -36,6 +36,27 @@ public interface ICompteService {
      * @throws DataAccessException si un événement non prévu survient
      */
     public Compte findOneByEmail(String email) throws DataAccessException;
+    
+    /**
+     * recherche un compte suivant la valeur de son adresse mail
+     *
+     * @param cni numéro de CNI du compte à rechercher
+     * @return l'utilisateur dont le numéro de CNI est passé en paramètre
+     * @throws DataAccessException si un événement non prévu survient
+     */
+    public Compte findOneByCni(String cni) throws DataAccessException;
+    
+    /**
+     * recherche un compte suivant la valeur de son adresse mail et de son mot
+     * de passe
+     *
+     * @param cni numéro de CNI du compte à rechercher
+     * @param matricule matricule de l'utilisateur du compte recherché
+     * @return l'utilisateur dont la cni et son matricule est passés en
+     * paramètre
+     * @throws DataAccessException si un événement non prévu survient
+     */
+    public Compte findOneByCniAndMatricule(String cni, String matricule) throws DataAccessException;
 
     /**
      * recherche un compte suivant la valeur de son adresse mail et de son mot

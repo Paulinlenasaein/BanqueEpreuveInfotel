@@ -26,4 +26,7 @@ public class Departement implements Serializable {
 
     @OneToMany(mappedBy = "departement")
     private List<DepOption> options;
+    
+    @OneToMany(mappedBy = "departement")
+    private List<Enseignant> enseignants;
 }

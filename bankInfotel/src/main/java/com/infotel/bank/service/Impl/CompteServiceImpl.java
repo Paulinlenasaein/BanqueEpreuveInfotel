@@ -83,4 +83,14 @@ public class CompteServiceImpl implements ICompteService {
     public Compte updateOne(Compte compte) throws DataAccessException {
         return compteDao.save(compte);
     }
+
+    @Override
+    public Compte findOneByCni(String cni) throws DataAccessException {
+        return compteDao.findByCni(cni);
+    }
+
+    @Override
+    public Compte findOneByCniAndMatricule(String cni, String matricule) throws DataAccessException {
+        return compteDao.findByCniAndMatricule(cni, matricule);
+    }
 }
