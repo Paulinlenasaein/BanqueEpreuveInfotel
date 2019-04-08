@@ -1,2 +1,2 @@
 # BanqueEpreuveInfotel
-Application permettant la gestion et l'accès facile aux anciènnes épreuves et document du département INFOTEL de l' ENSP Maroua.
+Application allowing management and easy access to old proofs and documents from all the departments of the National Advanced School of Engineering of Maroua.
