@@ -57,9 +57,9 @@ public class NiveauResource {
     }
 
     @PUT
-    @Path("{code}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Niveau modifierNiveau(@PathParam("code") String code, Niveau niveau) throws DataAccessException {
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public Niveau modifierNiveau(Niveau niveau) throws DataAccessException {
         return niveauService.updateOne(niveau);
     }
 

@@ -64,9 +64,9 @@ public class UeNiveauResource {
     }
 
     @PUT
-    @Path("{id}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public UeNiveau modifierUeNiveau(@PathParam("id") String id, UeNiveau ueNiv) throws DataAccessException {
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public UeNiveau modifierUeNiveau(UeNiveau ueNiv) throws DataAccessException {
         return ueNivService.updateOne(ueNiv);
     }
 

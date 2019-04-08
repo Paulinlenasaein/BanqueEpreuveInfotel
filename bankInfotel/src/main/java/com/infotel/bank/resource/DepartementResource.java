@@ -25,17 +25,17 @@ import org.springframework.stereotype.Component;
 @Path("/departement")
 @Component
 public class DepartementResource {
-    
+
     @Autowired
     private IDepartementService departementService;
-    
+
     @GET
     @Path("{code}")
     @Produces(value = MediaType.APPLICATION_JSON)
     public Departement returnOne(@PathParam("code") String code) throws DataAccessException {
         return departementService.findOne(code);
     }
-    
+
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
     public Page<Departement> returnAll(@DefaultValue("0") @QueryParam("from") int from, @DefaultValue("50") @QueryParam("to") int to) throws DataAccessException {
@@ -50,9 +50,9 @@ public class DepartementResource {
     }
 
     @PUT
-    @Path("{code}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Departement modifierDepartement(@PathParam("code") String code, Departement departement) throws DataAccessException {
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public Departement modifierDepartement(Departement departement) throws DataAccessException {
         return departementService.updateOne(departement);
     }
 

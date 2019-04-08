@@ -18,7 +18,7 @@ import lombok.Data;
 public class Recevoir implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long id_rec;
     
     @ManyToOne(optional = false)
     private Etudiant etudiant;

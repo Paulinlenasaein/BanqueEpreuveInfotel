@@ -1,5 +1,6 @@
 package com.infotel.bank.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -21,6 +23,7 @@ import org.hibernate.validator.constraints.Length;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Compte implements Serializable {
 
     @Id
@@ -28,7 +31,7 @@ public class Compte implements Serializable {
     private Long idUser;
 
     @Column(unique = true, nullable = false)
-    @Length(min = 8, max = 8)
+    @Length(min = 7, max = 8)
     private String matricule;
 
     @Column(unique = true, nullable = false)
@@ -53,4 +56,10 @@ public class Compte implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(7) NOT NULL DEFAULT 'STUDENT'")
     private RoleName role;
+    
+    @ManyToOne(optional = false)
+    private Departement departement;
+    
+    @Column(nullable = true, columnDefinition = "INT(1) NOT NULL DEFAULT 0")
+    private int isRegister;
 }

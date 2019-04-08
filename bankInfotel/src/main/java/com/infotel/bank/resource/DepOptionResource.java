@@ -57,9 +57,9 @@ public class DepOptionResource {
     }
 
     @PUT
-    @Path("{code}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public DepOption modifierDepOption(@PathParam("code") String code, DepOption option) throws DataAccessException {
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public DepOption modifierDepOption(DepOption option) throws DataAccessException {
         return optionService.updateOne(option);
     }
 

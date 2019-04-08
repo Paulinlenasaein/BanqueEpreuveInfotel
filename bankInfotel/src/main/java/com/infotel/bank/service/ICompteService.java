@@ -36,7 +36,7 @@ public interface ICompteService {
      * @throws DataAccessException si un événement non prévu survient
      */
     public Compte findOneByEmail(String email) throws DataAccessException;
-    
+
     /**
      * recherche un compte suivant la valeur de son adresse mail
      *
@@ -45,30 +45,29 @@ public interface ICompteService {
      * @throws DataAccessException si un événement non prévu survient
      */
     public Compte findOneByCni(String cni) throws DataAccessException;
-    
+
     /**
-     * recherche un compte suivant la valeur de son adresse mail et de son mot
-     * de passe
+     * recherche un compte suivant la valeur de son matricule et CNI
      *
-     * @param cni numéro de CNI du compte à rechercher
      * @param matricule matricule de l'utilisateur du compte recherché
+     * @param cni numéro de CNI du compte à rechercher
      * @return l'utilisateur dont la cni et son matricule est passés en
      * paramètre
      * @throws DataAccessException si un événement non prévu survient
      */
-    public Compte findOneByCniAndMatricule(String cni, String matricule) throws DataAccessException;
+    public Compte findOneByMatriculeAndCni(String matricule, String cni) throws DataAccessException;
 
     /**
-     * recherche un compte suivant la valeur de son adresse mail et de son mot
-     * de passe
+     * recherche un compte suivant la valeur de son matricule et de son mot de
+     * passe
      *
-     * @param email email du compte à rechercher
+     * @param matricule matricule du compte à rechercher
      * @param password mot de passe du compte de l'utilisateur
      * @return l'utilisateur dont l'email et le mot de passeest passés en
      * paramètre
      * @throws DataAccessException si un événement non prévu survient
      */
-    public Compte findOneByEmailAndPassword(String email, String password) throws DataAccessException;
+    public Compte findOneByMatriculeAndPassword(String matricule, String password) throws DataAccessException;
 
     /**
      * recherche un compte ayant un privilège donné
@@ -80,8 +79,8 @@ public interface ICompteService {
      * @throws DataAccessException si un événement non prévu survient
      */
     public Page<Compte> findAllByRole(String role, int from, int to) throws DataAccessException;
-    
-     /**
+
+    /**
      * Envoi un mail d'authentification à un utilisateur
      *
      * @param toEmail adresse mail du client

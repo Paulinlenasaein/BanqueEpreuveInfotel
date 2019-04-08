@@ -64,9 +64,9 @@ public class UEResource {
     }
 
     @PUT
-    @Path("{code}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public UE modifierUE(@PathParam("code") String code, UE ue) throws DataAccessException {
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public UE modifierUE(UE ue) throws DataAccessException {
         return ueService.updateOne(ue);
     }
 

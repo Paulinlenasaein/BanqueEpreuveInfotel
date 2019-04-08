@@ -78,9 +78,9 @@ public class FichierResource {
     }
 
     @PUT
-    @Path("{id}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Fichier modifierFichier(@PathParam("id") String id, Fichier Fichier) throws DataAccessException {
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public Fichier modifierFichier(Fichier Fichier) throws DataAccessException {
         return FichierService.updateOne(Fichier);
     }
 

@@ -51,17 +51,17 @@ public class CompteResource {
     }
     
     @GET
-    @Path("/auth/{email}/{password}")
+    @Path("/auth/{matricule}/{password}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Compte returnOneByEmailAndPassword(@PathParam("email") String email, @PathParam("password") String password) throws DataAccessException {
-        return compteService.findOneByEmailAndPassword(email, password);
+    public Compte returnOneByMatriculeAndPassword(@PathParam("matricule") String matricule, @PathParam("password") String password) throws DataAccessException {
+        return compteService.findOneByMatriculeAndPassword(matricule, password);
     }
     
     @GET
-    @Path("/auth1/{cni}/{matricule}")
+    @Path("/auth1/{matricule}/{cni}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Compte returnOneByCniAndMatricule(@PathParam("cni") String cni, @PathParam("matricule") String matricule) throws DataAccessException {
-        return compteService.findOneByCniAndMatricule(cni, matricule);
+    public Compte returnOneByMatriculeAndCni(@PathParam("matricule") String matricule, @PathParam("cni") String cni) throws DataAccessException {
+        return compteService.findOneByMatriculeAndCni(matricule, cni);
     }
     
     @GET
@@ -92,9 +92,9 @@ public class CompteResource {
     }
 
     @PUT
-    @Path("{matricule}")
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Compte modifierCompte(@PathParam("matricule") String matricule, Compte compte) throws DataAccessException {
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public Compte modifierCompte(Compte compte) throws DataAccessException {
         return compteService.updateOne(compte);
     }
 

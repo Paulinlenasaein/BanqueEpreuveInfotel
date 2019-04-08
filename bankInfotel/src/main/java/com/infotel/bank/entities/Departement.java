@@ -1,11 +1,10 @@
 package com.infotel.bank.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -15,6 +14,7 @@ import org.hibernate.validator.constraints.Length;
  */
 @Entity
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Departement implements Serializable {
 
     @Id
@@ -23,10 +23,11 @@ public class Departement implements Serializable {
 
     @Column(nullable = false)
     private String name;
-
-    @OneToMany(mappedBy = "departement")
-    private List<DepOption> options;
     
-    @OneToMany(mappedBy = "departement")
-    private List<Enseignant> enseignants;
+    @Column(nullable = false)
+    private String chefDep;
+    
+    @Column(nullable = false)
+    private String image;
+    
 }

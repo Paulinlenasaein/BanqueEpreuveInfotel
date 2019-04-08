@@ -45,8 +45,8 @@ public class CompteServiceImpl implements ICompteService {
     }
 
     @Override
-    public Compte findOneByEmailAndPassword(String email, String password) throws DataAccessException {
-        return compteDao.findByEmailAndPassword(email, password);
+    public Compte findOneByMatriculeAndPassword(String matricule, String password) throws DataAccessException {
+        return compteDao.findByMatriculeAndPassword(matricule, password);
     }
 
     @Override 
@@ -90,7 +90,7 @@ public class CompteServiceImpl implements ICompteService {
     }
 
     @Override
-    public Compte findOneByCniAndMatricule(String cni, String matricule) throws DataAccessException {
-        return compteDao.findByCniAndMatricule(cni, matricule);
+    public Compte findOneByMatriculeAndCni(String cni, String matricule) throws DataAccessException {
+        return compteDao.findByMatriculeAndCni(matricule, cni);
     }
 }

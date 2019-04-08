@@ -1,7 +1,6 @@
 package com.infotel.bank.dao;
 
 import com.infotel.bank.entities.Compte;
-import com.infotel.bank.entities.Niveau;
 import com.infotel.bank.entities.RoleName;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,20 +42,20 @@ public interface ICompteDao extends JpaRepository<Compte, Long> {
      * retourne le compte d'un étudiant ayant un numéro de CNI et matricule
      * donnés
      *
-     * @param cni numéro de CNI de l'étudiant recherché
      * @param matricule matricule de l'étudiant recherché
+     * @param cni numéro de CNI de l'étudiant recherché
      * @return un objet Compte
      */
-    public Compte findByCniAndMatricule(String cni, String matricule);
+    public Compte findByMatriculeAndCni(String matricule, String cni);
 
     /**
      * retourne le compte d'un étudiant ayant un email donné
      *
-     * @param email email de l'étudiant recherché
+     * @param matricule matricule de l'utilisateur recherché
      * @param password mot de passe du compte
      * @return un objet Compte
      */
-    public Compte findByEmailAndPassword(String email, String password);
+    public Compte findByMatriculeAndPassword(String matricule, String password);
 
     /**
      * retourne les compte des étudiants ayant un role donné
@@ -66,4 +65,5 @@ public interface ICompteDao extends JpaRepository<Compte, Long> {
      * @return une page d'objets Compte
      */
     public Page<Compte> findByRole(RoleName role, Pageable page);
+    
 }

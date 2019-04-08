@@ -9,15 +9,18 @@ import org.springframework.stereotype.Component;
  * @author paulinlenasaein
  */
 @Component
-@ApplicationPath("/bank")
+@ApplicationPath("/bank-api")
 public class MyConfig extends ResourceConfig {
     
     public MyConfig(){
         register(CompteResource.class);
         register(DepOptionResource.class);
         register(DepartementResource.class);
+        register(EnseignantResource.class);
+        register(EtudiantResource.class);
         register(FichierResource.class);
         register(NiveauResource.class);
+        register(RecevoirResource.class);
         register(UEResource.class);
         register(UeNiveauResource.class);
     }
